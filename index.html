@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="theme-color" content="#ffffff" />
+  <title>Smell This</title>
+  <link rel="manifest" href="%BASE_URL%manifest.json" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garant:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <div id="app">
+    <header class="site-header">
+      <div class="site-header-text">
+        <h1 class="site-title">Smell This</h1>
+        <p class="site-subtitle">Samples available to share · rotation pieces stay here, but come over and smell them</p>
+      </div>
+      <nav class="top-nav" id="top-nav">
+        <button class="nav-btn active" data-tab="fragrances">Fragrances</button>
+        <button class="nav-btn" data-tab="skin-body-hair">Skin &amp; Body</button>
+        <button class="nav-btn" data-tab="wishlist">Wishlist</button>
+        <button class="nav-btn" data-tab="candles">Candles</button>
+      </nav>
+    </header>
+
+    <main id="main-content">
+      <div class="loading" id="loading">
+        <span>Loading collection…</span>
+      </div>
+      <div class="error hidden" id="error">
+        <span>Couldn't load the collection. Try again later.</span>
+      </div>
+
+      <!-- Fragrances section -->
+      <section class="section hidden" id="section-fragrances">
+        <div class="filters" id="filters-fragrances">
+          <input class="search-input" type="search" placeholder="Search brand or name…" id="search-fragrances" />
+          <div class="filter-row">
+            <div class="chip-group" id="type-chips">
+              <button class="chip active" data-type="all">All</button>
+              <button class="chip" data-type="sample">Samples</button>
+              <button class="chip" data-type="miniature">Miniatures</button>
+              <button class="chip" data-type="bottle">Bottles</button>
+            </div>
+          </div>
+          <div class="filter-row">
+            <div class="chip-group" id="broad-chips"></div>
+          </div>
+          <div class="filter-row hidden" id="olfactory-sub-row">
+            <div class="chip-group" id="olfactory-chips"></div>
+          </div>
+          <div class="filter-row">
+            <button class="chip wearing-toggle" id="wearing-toggle" data-active="false">✦ In rotation</button>
+            <button class="chip sale-toggle" id="sale-toggle" data-active="false">For sale</button>
+          </div>
+        </div>
+        <div class="taste-profile hidden" id="taste-profile"></div>
+        <div class="card-grid" id="grid-fragrances"></div>
+        <p class="empty-state hidden" id="empty-fragrances">Nothing matches your filters.</p>
+      </section>
+
+      <!-- Wishlist section -->
+      <section class="section hidden" id="section-wishlist">
+        <div class="section-header">
+          <h2 class="section-title">Wishlist</h2>
+        </div>
+        <div class="filters" id="filters-wishlist">
+          <input class="search-input" type="search" placeholder="Search brand or name…" id="search-wishlist" />
+          <div class="filter-row">
+            <div class="chip-group" id="wishlist-priority-chips">
+              <button class="chip active" data-priority="">All</button>
+              <button class="chip" data-priority="high">High</button>
+              <button class="chip" data-priority="medium">Medium</button>
+              <button class="chip" data-priority="low">Low</button>
+            </div>
+          </div>
+        </div>
+        <div class="card-grid" id="grid-wishlist"></div>
+        <p class="empty-state hidden" id="empty-wishlist">Nothing on the wishlist yet.</p>
+      </section>
+
+      <!-- Candles section -->
+      <section class="section hidden" id="section-candles">
+        <div class="section-header">
+          <h2 class="section-title">Candles</h2>
+        </div>
+        <div class="filters" id="filters-candles">
+          <input class="search-input" type="search" placeholder="Search brand or name…" id="search-candles" />
+          <div class="filter-row">
+            <div class="chip-group" id="candle-repurchase-chips">
+              <button class="chip active" data-repurchase="">All</button>
+              <button class="chip" data-repurchase="yes">Would repurchase</button>
+              <button class="chip" data-repurchase="no">Wouldn't repurchase</button>
+            </div>
+          </div>
+        </div>
+        <div class="card-grid" id="grid-candles"></div>
+        <p class="empty-state hidden" id="empty-candles">No candles yet.</p>
+      </section>
+
+      <!-- Skin & Body section -->
+      <section class="section hidden" id="section-skin-body-hair">
+        <div class="filters" id="filters-skin">
+          <input class="search-input" type="search" placeholder="Search brand or name…" id="search-skin" />
+          <div class="filter-row">
+            <div class="chip-group scrollable" id="category-chips"></div>
+          </div>
+        </div>
+        <div class="card-grid" id="grid-skin"></div>
+        <p class="empty-state hidden" id="empty-skin">Nothing matches your filters.</p>
+      </section>
+    </main>
+
+    <!-- Bottom nav (mobile) -->
+    <nav class="bottom-nav" id="bottom-nav">
+      <button class="nav-btn active" data-tab="fragrances">
+        <span class="nav-icon">◎</span>
+        <span>Fragrances</span>
+      </button>
+      <button class="nav-btn" data-tab="skin-body-hair">
+        <span class="nav-icon">◇</span>
+        <span>Skin &amp; Body</span>
+      </button>
+      <button class="nav-btn" data-tab="wishlist">
+        <span class="nav-icon">◌</span>
+        <span>Wishlist</span>
+      </button>
+      <button class="nav-btn" data-tab="candles">
+        <span class="nav-icon">◎</span>
+        <span>Candles</span>
+      </button>
+    </nav>
+
+    <!-- Detail sheet -->
+    <div class="sheet-backdrop hidden" id="sheet-backdrop"></div>
+    <div class="detail-sheet hidden" id="detail-sheet" role="dialog" aria-modal="true">
+      <div class="sheet-handle"></div>
+      <button class="sheet-close" id="sheet-close" aria-label="Close">✕</button>
+      <div class="sheet-content" id="sheet-content"></div>
+    </div>
+  </div>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+{
+  "name": "Smell This",
+  "short_name": "Smell This",
+  "description": "A personal scent and beauty catalogue",
+  "start_url": "/scents/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
+  "icons": [
+    {
+      "src": "/scents/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/scents/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
