@@ -168,12 +168,6 @@ export function renderFragranceDetail(item, allFragrances = []) {
       </div>
     ` : ''}
 
-    ${comparableto ? `
-      <div class="sheet-divider"></div>
-      <div class="sheet-section-label">Matching profiles</div>
-      <div class="comparable-to">${renderComparableTo(comparableto, allFragrances)}</div>
-    ` : ''}
-
     ${note ? `
       <div class="sheet-divider"></div>
       <div class="sheet-section-label">Jenny's note</div>
@@ -183,7 +177,6 @@ export function renderFragranceDetail(item, allFragrances = []) {
     <div class="sheet-divider"></div>
     <div class="sheet-sources">
       <p>Notes, longevity &amp; sillage: <a href="https://www.fragrantica.com" target="_blank" rel="noopener">Fragrantica</a></p>
-      ${(vibe || comparableto) ? `<p>Vibes &amp; matching profiles: AI-generated suggestions, not verified</p>` : ''}
     </div>
   `
 }
@@ -267,12 +260,6 @@ export function renderWishlistDetail(item, allFragrances = []) {
       </div>
     ` : ''}
 
-    ${comparableto ? `
-      <div class="sheet-divider"></div>
-      <div class="sheet-section-label">Matching profiles</div>
-      <div class="comparable-to">${renderComparableTo(comparableto, allFragrances)}</div>
-    ` : ''}
-
     ${note ? `
       <div class="sheet-divider"></div>
       <div class="sheet-section-label">Notes</div>
@@ -283,7 +270,7 @@ export function renderWishlistDetail(item, allFragrances = []) {
       <div class="sheet-divider"></div>
       <div class="sheet-sources">
         <p>Notes data: <a href="https://www.fragrantica.com" target="_blank" rel="noopener">Fragrantica</a></p>
-        ${(vibe || comparableto) ? `<p>Vibes &amp; matching profiles: AI-generated suggestions, not verified</p>` : ''}
+        ${''}
       </div>
     ` : ''}
   `
